@@ -1,0 +1,30 @@
+jug1 = int(input('Enter the max capacity of first jug '))
+jug2 = int(input('Enter the max capacity of 2nd jug '))
+final =int(input('Enter the final state of jug '))
+x=0
+y=0
+print('\n-----------------------\n')
+print('Initially empty the jug')
+while x!=final:
+    print(x,y)
+    if x == 0 and y == 0:
+        print("\nFiil Operation : Fill the 3 gallons of jug with water\n")
+        y = jug2
+    elif x == 0 and y == jug2:
+        print("\nTransfer Operation : Pour all water from 3 gallon jug to the 4 gallon jug")
+        x,y = y,x
+    elif x == jug2 and y == 0:
+        print("\nFill Operation : Fill the 3 gallon jug completely\n")
+        y = jug2
+    elif x == jug2 and y ==jug2:
+        print("\nTransfer Operation : Pour some water from the 3 gallon jug to fill the four gallon jug")
+        y = y-(jug1-x)
+        x = jug1
+    elif x == jug1 and y< jug2:
+        print("\nEmpty Operation : Empty the 4 gallon jug")
+        x = 0
+    elif x == 0 and y < jug2:
+        print("\nTransfer Operation : Pour all water from 3 gallon jug to the 4 gallon jug")
+        x = y
+        y = 0
+print(x,y)
